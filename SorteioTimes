@@ -1,251 +1,202 @@
-#VETORES - listas vazias
-gol = []
+import random
 
-latD = []
-zag1 = []
-zag2 = []
-latE = []
-
-meiaDef = []
-meia = []
-meiaOf = []
-
-pontaD = []
-pontaE = []
-ata = []
-
+#Listas vazias
+gol, lat_d, zag, lat_e = [], [], [], []
+meia_def, meia, meia_of = [], [], []
+ponta_d, ponta_e, ata = [], [], []
 part = []
 
-#FUNÇÕES - randomização da escolha e remoção de item escolhido
-def sortGol():
-    randomGol = random.choice(gol)
-    gol.remove(randomGol)
-    return randomGol
+#Randomização da escolha, remoção de item escolhido e retorna a escolha
+def sorteio_posicao(posicao):
+    random_pos = random.choice(posicao)
+    posicao.remove(random_pos)
+    return random_pos
 
-def sortLatD():
-    randomLatD = random.choice(latD)
-    latD.remove(randomLatD)
-    return randomLatD
 
-def sortZag1():
-    randomZag1 = random.choice(zag1)
-    zag1.remove(randomZag1)
-    return randomZag1
-
-def sortZag2():
-    randomZag2 = random.choice(zag2)
-    zag2.remove(randomZag2)
-    return randomZag2
-
-def sortLatE():
-    randomLatE = random.choice(latE)
-    latE.remove(randomLatE)
-    return randomLatE
-
-def sortMeiaDef():
-    randomMeiaDef = random.choice(meiaDef)
-    meiaDef.remove(randomMeiaDef)
-    return randomMeiaDef
-
-def sortMeia():
-    randomMeia = random.choice(meia)
-    meia.remove(randomMeia)
-    return randomMeia
-
-def sortMeiaOf():
-    randomMeiaOf = random.choice(meiaOf)
-    meiaOf.remove(randomMeiaOf)
-    return randomMeiaOf
-
-def sortPontaD():
-    randomPontaD = random.choice(pontaD)
-    pontaD.remove(randomPontaD)
-    return randomPontaD
-
-def sortPontaE():
-    randomPontaE = random.choice(pontaE)
-    pontaE.remove(randomPontaE)
-    return randomPontaE
-
-def sortAta():
-    randomAta = random.choice(ata)
-    ata.remove(randomAta)
-    return randomAta
-
-#FUNÇÃO - insert vazio para seguir somente após clicar em "ENTER"
-def space():
-    enter = input("")
+def click():
+    input(" ")
     return
 
-#INSERT - quantidade de participantes
-print ('\n')
-qntPart = int(input('Digite o número de participantes: '))
-print('\n')
 
-#INSERT - dados que serão inseridos nas listas vazias
-contador = 0
-while contador < qntPart:
-    part.append(input("Digite os participantes: "))
-    contador = contador + 1
-print (part)
-print('\n')
+def space():
+    print(" ")
+    return
 
-contador = 0
-while contador < qntPart:
-    gol.append(input("Digite um goleiro: "))
-    contador = contador + 1
-print (gol)
-print('\n')
-
-contador = 0
-while contador < qntPart:
-    latD.append(input("Digite um lateral direito: "))
-    contador = contador + 1
-print (latD)
-print('\n')
-
-contador = 0
-while contador < qntPart:
-    zag1.append(input("Digite os melhores zagueiros: "))
-    contador = contador + 1
-print (zag1)
-print('\n')
-
-contador = 0
-while contador < qntPart:
-    zag2.append(input("Digite a segunda parte dos zagueiros: "))
-    contador = contador + 1
-print (zag2)
-print('\n')
-
-contador = 0
-while contador < qntPart:
-    latE.append(input("Digite um lateral esquerdo: "))
-    contador = contador + 1
-print (latE)
-print('\n')
-
-contador = 0
-while contador < qntPart:
-    meiaDef.append(input("Digite os meias defensivos: "))
-    contador = contador + 1
-print (meiaDef)
-print('\n')
-
-contador = 0
-while contador < qntPart:
-    meia.append(input("Digite os meias: "))
-    contador = contador + 1
-print (meia)
-print('\n')
-
-contador = 0
-while contador < qntPart:
-    meiaOf.append(input("Digite os meias ofensivos: "))
-    contador = contador + 1
-print (meiaOf)
-print('\n')
-
-contador = 0
-while contador < qntPart:
-    pontaD.append(input("Digite os pontas direita: "))
-    contador = contador + 1
-print (pontaD)
-print('\n')
-
-contador = 0
-while contador < qntPart:
-    pontaE.append(input("Digite os pontas esquerda: "))
-    contador = contador + 1
-print (pontaE)
-print('\n')
-
-contador = 0
-while contador < qntPart:
-    ata.append(input("Digite os atacantes: "))
-    contador = contador + 1
-print (ata)
-print('\n')
-
-print("Ordem do sorteio:\n")
-space()
-
-#RANDOMIZAÇÃO - importa a biblioteca RANDOM e embaralha os participantes da lista part[]
-import random
-random.shuffle(part)
-print(part)
 
 #CORES - para a visualização otimizada das posições
-cores = {'limpa':'\033[m',
-         'vermelho':'\033[1;31m',
-         'amarelo':'\033[1;33m',
-         'verde':'\033[1;32m',
-         'azul':'\033[1;34m'}
+cores = {'limpa':'\033[m', 'vermelho':'\033[1;31m', 'amarelo':'\033[1;33m', 'verde':'\033[1;32m', 'azul':'\033[1;34m'}
+3
+limpa = cores['limpa']
+vermelho = cores['vermelho']
+amarelo = cores['amarelo']
+verde = cores['verde']
+azul = cores['azul']
+
+qntPart = int(input("\nDigite o número de participantes: "))
+
+
+#Dados que serão inseridos nas listas vazias
+print("\nDigite os participantes: ")
+contador = 0
+while contador < qntPart:
+    part.append(input("- "))
+    contador += 1
 space()
+
+
+print(f"{vermelho}Digite os goleiros{limpa}")
+contador = 0
+while contador < qntPart:
+    gol.append(input("- "))
+    contador += 1
+space()
+
+
+print(f"{amarelo}Digite os laterais direitos{limpa}")
+contador = 0
+while contador < qntPart:
+    lat_d.append(input("- "))
+    contador += 1
+space()
+
+
+print(f"{amarelo}Digite os zagueiros{limpa}")
+contador = 0
+while contador < qntPart*2:
+    zag.append(input("- "))
+    contador += 1
+space()
+
+
+print(f"{amarelo}Digite os laterais esquerdos{limpa}")
+contador = 0
+while contador < qntPart:
+    lat_e.append(input("- "))
+    contador += 1
+space()
+
+
+print(f"{verde}Digite os meias defensivos{limpa}")
+contador = 0
+while contador < qntPart:
+    meia_def.append(input("- "))
+    contador += 1
+space()
+
+
+print(f"{verde}Digite os meias{limpa}")
+contador = 0
+while contador < qntPart:
+    meia.append(input("- "))
+    contador += 1
+space()
+
+
+print(f"{verde}Digite os meias ofensivos{limpa}")
+contador = 0
+while contador < qntPart:
+    meia_of.append(input("- "))
+    contador += 1
+space()
+
+
+print(f"{azul}Digite os pontas direitas{limpa}")
+contador = 0
+while contador < qntPart:
+    ponta_d.append(input("- "))
+    contador += 1
+space()
+
+
+print(f"{azul}Digite os pontas esquerdas{limpa}")
+contador = 0
+while contador < qntPart:
+    ponta_e.append(input("- "))
+    contador += 1
+space()
+
+
+print(f"{azul}Digite os atacantes{limpa}")
+contador = 0
+while contador < qntPart:
+    ata.append(input("- "))
+    contador += 1
+space()
+space()
+
+
+#Embaralha os participantes da lista part[]
+
+print("\nOrdem do sorteio: ")
+click()
+random.shuffle(part)
+
+contador = 0
+for nome in part:
+    contador += 1
+    print(f"{contador}º {nome}", end='  ')
+space()
+click()
+
 
 #SORTEIOS - sorteia cada jogador por posição para cada participante
-print (cores['vermelho'],'GOLEIRO', cores['limpa'])
-space()
-for x in part:
-    print ("{}: {}".format(x, sortGol()))
-    space()
 
-print (cores['amarelo'],'LATERAL DIREITO', cores['limpa'])
-space()
-for x in part:
-    print ("{}: {}".format(x, sortLatD()))
-    space()
+print(f"{cores['vermelho']}GOLEIRO {limpa}")
+click() 
+for nome in part:
+    print(f"{nome}: {sorteio_posicao(gol)}")
+    click()
 
-print (cores['amarelo'],'ZAGUEIRO pt.1', cores['limpa'])
-space()
-for x in part:
-    print ("{}: {}".format(x, sortZag1()))
-    space()
+print(f"{amarelo}LATERAL DIREITO {limpa}")
+click()
+for nome in part:
+    print(f"{nome}: {sorteio_posicao(lat_d)}")
+    click()
 
-print (cores['amarelo'],'ZAGUEIRO pt.2', cores['limpa'])
-space()
-for x in part:
-    print ("{}: {}".format(x, sortZag2()))
-    space()
+print(f"{amarelo}ZAGUEIRO {limpa}")
+click()
+for nome in part * 2:
+  print(f"{nome}: {sorteio_posicao(zag)}")
+  click()
 
-print (cores['amarelo'],'LATERAL ESQUERDO', cores['limpa'])
-space()
-for x in part:
-    print ("{}: {}".format(x, sortLatE()))
-    space()
+print(f"{amarelo}LATERAL ESQUERDO {limpa}")
+click()
+for nome in part:
+    print(f"{nome}: {sorteio_posicao(lat_e)}")
+    click()
 
-print (cores['verde'],'MEIA DEFENSIVO', cores['limpa'])
-space()
-for x in part:
-    print ("{}: {}".format(x, sortMeiaDef()))
-    space()
+print(f"{verde}MEIA DEFENSIVO {limpa}")
+click()
+for nome in part:
+    print(f"{nome}: {sorteio_posicao(meia_def)}")
+    click()
 
-print (cores['verde'],'MEIA CENTRAL', cores['limpa'])
-space()
-for x in part:
-    print ("{}: {}".format(x, sortMeia()))
-    space()
+print(f"{verde}MEIA CENTRAL {limpa}")
+click()
+for nome in part:
+    print(f"{nome}: {sorteio_posicao(meia)}")
+    click()
 
-print (cores['verde'],'MEIA OFENSIVO', cores['limpa'])
-space()
-for x in part:
-    print ("{}: {}".format(x, sortMeiaOf()))
-    space()
+print(f"{verde}MEIA OFENSIVO {limpa}")
+click()
+for nome in part:
+    print(f"{nome}: {sorteio_posicao(meia_of)}")
+    click()
 
-print (cores['azul'],'PONTA DIREITA', cores['limpa'])
-space()
-for x in part:
-    print ("{}: {}".format(x, sortPontaD()))
-    space()
+print(f"{azul}PONTA DIREITA {limpa}")
+click()
+for nome in part:
+    print(f"{nome}: {sorteio_posicao(ponta_d)}")
+    click()
 
-print (cores['azul'],'PONTA ESQUERDA', cores['limpa'])
-space()
-for x in part:
-    print ("{}: {}".format(x, sortPontaE()))
-    space()
+print(f"{azul}PONTA ESQUERDA {limpa}")
+click()
+for nome in part:
+    print(f"{nome}: {sorteio_posicao(ponta_e)}")
+    click()
 
-print (cores['azul'],'ATACANTE', cores['limpa'])
-space()
-for x in part:
-    print ("{}: {}".format(x, sortAta()))
-    space()
+print(f"{azul}ATACANTE {limpa}")
+click()
+for nome in part:
+    print(f"{nome}: {sorteio_posicao(ata)}")
+    click()
